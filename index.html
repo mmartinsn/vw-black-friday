@@ -810,6 +810,34 @@
   .vs-cta { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center; padding-top: 6px; }
   .vs-cta .kl { color: var(--cream); background: rgb(255 179 199 / .1); }
 
+  /* gift section: pale coral ground, navy box (restored) */
+  .scene { background: linear-gradient(#090f1e 0px, rgb(251 226 214 / 0) 110px), #fbe2d6 !important; color: var(--wine); }
+  .scene .pin { background: radial-gradient(60% 60% at 64% 55%, rgb(255 244 238 / .9) 0%, rgb(251 226 214 / 0) 70%); }
+  .scene .eyebrow { color: #a9452a !important; font-weight: 800; }
+  .scene .hook { color: var(--wine); }
+  .scene .hook .foil, .scene .hook em { background: none; -webkit-text-fill-color: #b04a2c; color: #b04a2c; animation: none; }
+  .scene .hero-sub { color: #2c3452 !important; font-weight: 500; }
+  .scene .caplist { border-top-color: rgb(20 27 46 / .15); }
+  .scene .caplist li { border-bottom-color: rgb(20 27 46 / .15); }
+  .scene .caplist span { color: var(--wine); font-weight: 600; }
+  .scene .caplist s { color: #5f6680; }
+  .scene .caplist b { color: #b9643f; -webkit-text-fill-color: #b9643f; }
+  .scene .bgword { color: rgb(21 29 52 / .17); opacity: 1; }
+  .scene .dots i { border-color: #5f6680; }
+  .scene .dots i.on { background: #c0603f; border-color: #c0603f; }
+  .scene .scrollhint { color: #2c3452 !important; }
+  .scene .gshadow { background: radial-gradient(closest-side, rgb(20 27 46 / .35), transparent); }
+  .scene .clock-lbl { color: #5f6680; }
+  .scene .clock-cells span { background: var(--wine); }
+  .scene .kl { color: var(--wine); background: rgb(255 179 199 / .3); }
+
+  /* phone: offer chip on one line, headline readable over the photo */
+  @media (max-width: 600px) {
+    .bf-chip { font-size: 10px; letter-spacing: .14em; padding: 8px 12px; gap: 6px; white-space: nowrap; }
+    .bf-chip b { font-size: 13px; white-space: nowrap; }
+    .h4-veil { background: linear-gradient(180deg, transparent 32%, rgb(9 15 30 / .75) 52%, #090f1e 66%) !important; }
+  }
+
   /* exam sheet (ficha) */
   .more { background: none; border: 1px solid #894d34; color: var(--gold); border-radius: 999px; padding: 14px 18px; font: 700 13px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; display: inline-flex; justify-content: center; gap: 10px; transition: background .3s, color .3s; }
   .more:hover { background: rgb(209 137 107 / .12); }
