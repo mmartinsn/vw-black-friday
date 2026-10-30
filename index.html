@@ -320,7 +320,7 @@
   .g-bottom { height: var(--D); top: calc(var(--H) - var(--D) / 2); transform: rotateX(90deg); background: #080c17; box-shadow: none; }
   .g-inside { height: var(--D); top: calc(var(--H) * .35 - var(--D) / 2); transform: rotateX(90deg); background: radial-gradient(circle, #fce0d4, #d1896b 55%, #894d34); }
   .glid { --LW: calc(var(--W) + 16px); --LD: calc(var(--D) + 16px); --LH: 44px; left: -8px; top: -8px; width: var(--LW); height: var(--LH); transform-style: preserve-3d;
-    transform: translateY(calc(var(--l) * -300px)) translateZ(calc(var(--l) * -40px)) rotateX(calc(var(--l) * 24deg)) rotateZ(calc(var(--l) * -16deg)); }
+    transform: translateY(calc(var(--l) * var(--lift, -300px))) translateZ(calc(var(--l) * -40px)) rotateX(calc(var(--l) * 24deg)) rotateZ(calc(var(--l) * -16deg)); }
   .glid > * { position: absolute; left: 0; top: 0; }
   .gl { width: var(--LW); height: var(--LH); background: linear-gradient(90deg, transparent 44%, #d89274 44%, #f0bfaa 50%, #bf7251 56%, transparent 56%), linear-gradient(170deg, #31416d, #1d2742); box-shadow: inset 0 0 20px rgb(0 0 0 / .3); }
   .l-front { transform: translateZ(calc(var(--LD) / 2)); }
@@ -335,7 +335,7 @@
   .bow::before { right: 18px; transform: rotate(-30deg); }
   .bow::after { left: 18px; transform: rotate(30deg); }
   .gi { left: calc(var(--W) / 2 - var(--w) / 2); top: calc(var(--H) * .25); width: var(--w); height: var(--hh);
-    transform: translate3d(calc(cos(var(--a) + var(--q) * 80deg) * var(--q) * 260px), calc(var(--q) * (var(--h) - 150px)), calc(sin(var(--a) + var(--q) * 80deg) * var(--q) * 260px)) rotateY(calc(var(--p) * -140deg + var(--q) * 30deg)) rotateZ(calc(var(--q) * 14deg)); }
+    transform: translate3d(calc(cos(var(--a) + var(--q) * 80deg) * var(--q) * var(--fr, 260px)), calc(var(--q) * (var(--h) - 150px) * var(--fy, 1)), calc(sin(var(--a) + var(--q) * 80deg) * var(--q) * var(--fr, 260px))) rotateY(calc(var(--p) * -140deg + var(--q) * 30deg)) rotateZ(calc(var(--q) * 14deg)); }
   .kitc { --w: 96px; --hh: 132px; background: linear-gradient(170deg, #fef5f1, #f0e0d9); border: 1.5px solid #bf7251; border-radius: 8px; display: grid; place-content: center; text-align: center; gap: 4px; color: var(--wine); box-shadow: 0 20px 30px -14px rgb(0 0 0 / .6); }
   .kitc span { font: 700 6.5px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: #99573b; }
   .kitc b { font: italic 600 15px/1.05 var(--display); }
@@ -837,6 +837,9 @@
     .bf-chip b { font-size: 13px; white-space: nowrap; }
     .h4-veil { background: linear-gradient(180deg, transparent 32%, rgb(9 15 30 / .75) 52%, #090f1e 66%) !important; }
   }
+
+  /* phone: the box sits in the space below the tallest caption (top/scale set by the scene script); lid and gifts fly lower and wider */
+  @media (max-width: 979px) { .gbox { --lift: -110px; --fy: .3; --fr: 240px; } }
 
   /* exam sheet (ficha) */
   .more { background: none; border: 1px solid #894d34; color: var(--gold); border-radius: 999px; padding: 14px 18px; font: 700 13px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; display: inline-flex; justify-content: center; gap: 10px; transition: background .3s, color .3s; }
@@ -1758,7 +1761,19 @@
       }
       requestAnimationFrame(update);
     }
-    addEventListener('resize', () => { shown = -1; draw(last); });
+    // phone: fit the box under the tallest caption so the open gift never covers the text
+    const capsBox = sec.querySelector('.caps');
+    function place() {
+      if (innerWidth >= 980) { wrapBox.style.removeProperty('top'); wrapBox.style.removeProperty('--gs'); return; }
+      const H = pin.clientHeight, capBottom = capsBox.offsetTop + capsBox.offsetHeight + 12;
+      const above = 290, below = 200; // reach of the open gift around the box centre, unscaled
+      const gs = Math.max(.36, Math.min(.62, (H - capBottom - 16) / (above + below)));
+      wrapBox.style.setProperty('--gs', gs.toFixed(3));
+      wrapBox.style.top = Math.min(H - below * gs - 16, capBottom + above * gs) + 'px';
+    }
+    addEventListener('resize', () => { shown = -1; draw(last); place(); });
+    document.fonts?.ready.then(place);
+    place();
     update();
   })();
   // ── Satin ribbon: a wavy, twisting gold band, centred at both ends so the pieces meet across sections
