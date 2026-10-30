@@ -446,6 +446,7 @@
   .w-steps li::before { content: counter(w); position: absolute; left: -17px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--wine); color: var(--gold); display: grid; place-items: center; font: italic 600 15px/1 var(--display); }
   .w-steps b { font: 600 22px/1.15 var(--display); }
   .w-steps span { color: #8b6455; font-size: 15.5px; }
+  @media (max-width: 979px) { .w-steps { margin-left: 17px; } } /* phone: circles line up with the text margin instead of hanging past it */
   .w-price { display: flex; flex-wrap: wrap; gap: 18px 26px; align-items: center; padding: 20px 22px; border-radius: 22px; background: var(--wine); color: var(--cream); }
   .w-price > div { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
   .w-price s { color: var(--muted); }
