@@ -1468,7 +1468,7 @@
     });
     const lbl = over ? 'La oferta terminó' : before ? 'La oferta abre en' : 'La oferta termina en';
     document.querySelectorAll('[data-clock-lbl]').forEach((l) => (l.textContent = lbl));
-    dockClock.textContent = over ? 'La oferta terminó' : `${before ? 'Abre en' : 'Termina en'} ${d}d ${pad(h)}:${pad(m)}:${pad(s)}`;
+    if (!dockClock.dataset.rush) dockClock.textContent = over ? 'La oferta terminó' : `${before ? 'Abre en' : 'Termina en'} ${d}d ${pad(h)}:${pad(m)}:${pad(s)}`;
   }
   tick(); setInterval(tick, 1000);
 
@@ -1512,17 +1512,18 @@
     });
   });
 
-  // Verónica's 5-minute countdown. One per visitor (kept across reloads); at zero it does not
+  // Verónica's 5-minute countdown. One per visit (a reload keeps it, a new visit starts again); at zero it does not
   // pretend the offer is gone: it says the Black Friday price holds until 1 December.
   (function rush() {
     const box = document.querySelector('[data-rush]'), txt = document.querySelector('[data-rush-t]');
     if (!box) return;
     let t0 = Date.now();
-    try { const v = +localStorage.getItem('vw-bf-rush'); if (v && Date.now() - v < 864e5) t0 = v; else localStorage.setItem('vw-bf-rush', String(t0)); } catch (e) {}
-    const mm = box.querySelector('[data-rm]'), ss = box.querySelector('[data-rs]');
+    try { const v = +sessionStorage.getItem('vw-bf-rush'); if (v) t0 = v; else sessionStorage.setItem('vw-bf-rush', String(t0)); } catch (e) {}
+    const mm = box.querySelector('[data-rm]'), ss = box.querySelector('[data-rs]'), dc = document.querySelector('[data-dock-clock]');
     (function step() {
       const r = Math.max(0, 300000 - (Date.now() - t0));
       mm.textContent = String(Math.floor(r / 6e4)).padStart(2, '0'); ss.textContent = String(Math.floor(r / 1e3) % 60).padStart(2, '0');
+      if (dc) { dc.dataset.rush = '1'; dc.textContent = r ? `Aprovecha en los próximos ${mm.textContent}:${ss.textContent}` : 'Válida hasta el 1 de diciembre'; }
       if (r === 0) { box.hidden = true; txt.textContent = 'Tu precio Black Friday sigue disponible hasta el 1 de diciembre.'; return; }
       setTimeout(step, 250);
     })();
