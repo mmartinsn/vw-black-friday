@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
   /* Layout: a wine-and-gold-foil invitation. A giant foil "−20%" stands behind Verónica; the tests
      are gift cards that tilt and catch the light; blush pages are where you read about yourself;
@@ -24,7 +24,7 @@
     --muted: #e0c8bf;
     --gold: #f4b597;
     --foil: linear-gradient(110deg, #96563b 0%, #f0bfaa 20%, #bf7251 38%, #fce0d4 50%, #b16646 64%, #ebaf95 80%, #894d34 100%);
-    --display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+    --display: 'Fraunces', Georgia, 'Times New Roman', serif;
     --sans: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif;
     --ease: cubic-bezier(.2, .7, .1, 1);
     color-scheme: dark;
@@ -877,12 +877,12 @@
   .blk.pain p { color: #344164; }
   .blk ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
   .blk li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
-  .blk.pain li::before { content: '✕'; color: #b06548; font-weight: 800; }
+  .blk.pain li::before { content: '✓'; color: #b06548; font-weight: 800; }
   .blk.measure ul { grid-template-columns: 1fr; }
   @media (min-width: 820px) { .blk.measure ul { grid-template-columns: 1fr 1fr; gap: 12px 26px; } }
   .blk.measure li::before { content: ''; width: 8px; height: 8px; margin-top: 9px; transform: rotate(45deg); background: var(--gold); }
   .blk.get li::before { content: '✓'; color: var(--gold); font-weight: 800; }
-  .blk .why { font: italic 400 clamp(22px, 2.4vw, 28px)/1.3 var(--display); color: var(--cream); }
+  .blk .why { font: 500 17px/1.6 var(--sans); color: var(--cream); }
   .fbuy { position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; justify-content: space-between; padding: 18px clamp(20px, 5vw, 56px) calc(18px + env(safe-area-inset-bottom, 0px)); background: rgb(12 18 34 / .92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #894d34; }
   .fbuy .pr { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
   .fbuy s { color: var(--muted); }
@@ -1043,6 +1043,83 @@
     @keyframes grow2 { from { transform: scale(.7); opacity: .2; } to { transform: none; opacity: 1; } }
   }
 
+
+  /* ── Verónica, 29-30 Oct: type that reads at a glance ── */
+  .h2, .hook, .h2-title, .last h2, .faq-sec summary { font-weight: 600; }
+  .h2 em, .hook em, .h2-title em, .last h2 em { font-weight: 500; }
+  .price strong, .from b, .caplist b, .clock-cells b, .fbuy .pr strong, .big-n b, .h2-seal b, .steps li::before, .proof-stat b, .gline .amt strong, .addlec em {
+    font-family: var(--sans) !important; font-style: normal !important; font-weight: 800 !important; letter-spacing: -.02em !important; font-variant-numeric: tabular-nums; }
+  .price strong { font-size: 40px; }
+  .from b { font-size: 24px; }
+  .caplist b { font-size: 21px; }
+
+  /* hero: the real photo of Verónica (cut-out), no gift */
+  .h4-bg { -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%) !important; mask-image: linear-gradient(180deg, #000 82%, transparent 100%) !important;
+    -webkit-mask-composite: source-over !important; mask-composite: add !important; }
+  @media (min-width: 980px) { .h4-bg { top: 6%; height: 94%; } }
+  .valid { margin: 0; font: 700 12px/1.3 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .last .valid { color: var(--wine); margin-top: 18px; }
+
+  /* gift scene: what is written sits on white cards, the background word never crosses it */
+  .capcard { background: #fff; border-radius: 20px; padding: 4px 18px 14px; display: grid; gap: 10px; max-width: 480px; box-shadow: 0 22px 44px -30px rgb(21 29 52 / .55); }
+  .scene .capcard .caplist { border-top: 0; max-width: none; }
+  .scene .capcard .caplist li:last-child { border-bottom: 0; }
+  .giftcard { padding: 16px 18px; gap: 10px; }
+  .gc-intro { margin: 0; font: 800 11px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #a9452a; }
+  .gline { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #f0ddd6; }
+  .gline:last-child { border: 0; padding-bottom: 0; }
+  .gline img { width: 44px; height: 58px; object-fit: cover; border-radius: 4px; box-shadow: 0 8px 14px -8px rgb(0 0 0 / .45); }
+  .gline b { font: 700 14.5px/1.3 var(--sans); color: var(--wine); }
+  .gline .gl-txt { grid-column: 1 / 3; }
+  .gline small { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.35; color: #5f6680; }
+  .gline .amt { text-align: right; white-space: nowrap; }
+  .gline .amt s { display: block; margin-bottom: 4px; font-size: 12.5px; color: #5f6680; }
+  .gline .amt strong { font-size: 18px; color: #b04a2c; }
+  .scene .scrollhint { width: max-content; max-width: 82vw; text-align: center; line-height: 1.6; letter-spacing: .18em; }
+
+  /* the 5-minute countdown */
+  .rush { background: #fbe2d6; padding-block: 0 clamp(56px, 8vw, 96px); }
+  .rush-card { max-width: 760px; margin-inline: auto; display: grid; justify-items: center; gap: 18px; text-align: center; padding: clamp(28px, 4vw, 46px) clamp(20px, 4vw, 46px);
+    border-radius: 28px; background: radial-gradient(120% 90% at 50% 0%, #243052 0%, var(--wine-deep) 70%); color: var(--cream); box-shadow: 0 40px 80px -40px rgb(21 29 52 / .7); }
+  .rush-t { margin: 0; max-width: 22ch; font: 600 clamp(25px, 3.2vw, 36px)/1.15 var(--display); text-wrap: balance; }
+  .rush-cells { justify-content: center; }
+  .rush-fine { margin: 0; font-size: 13px; color: var(--muted); }
+
+  /* "Tu promo Black Friday": one white card per exam */
+  .promo .gc-in { background: #fff; color: var(--wine); gap: 16px; }
+  .promo .gc .lab { color: #a9452a; }
+  .tag20 { flex: none; padding: 7px 10px; border-radius: 999px; background: #fbe2d6; color: #a9452a; font: 800 12px/1 var(--sans); }
+  .gc h3.gname { margin: 0; text-transform: none; font: 600 23px/1.18 var(--display); letter-spacing: -.01em; color: var(--wine); text-wrap: balance; }
+  .promo .ideal { background: #fbf3ef; border-color: #f0ddd6; }
+  .promo .ideal > span { color: #a9452a; }
+  .promo .gc ul { color: #2c3452; font-size: 15px; }
+  .promo .gc .ideal li::before { color: #c0603f; }
+  .promo .gc .note { color: #5f6680; font-size: 13.5px; }
+  .promo .price { border-top-color: #ead5cc; }
+  .promo .price s { color: #5f6680; text-decoration-color: #c0603f; }
+  .promo .price strong { color: #b04a2c; }
+  .kl i { font-style: normal; }
+  .fee-l { display: block; margin-top: 6px; font-size: 12.5px; color: #5f6680; }
+  .promo .price .save { background: #fbe2d6; color: #a9452a; }
+  .promo .kl { color: var(--wine); background: rgb(255 179 199 / .3); }
+  .addlec { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: start; padding: 14px; border-radius: 14px; border: 1.5px solid #ead5cc; cursor: pointer; transition: border-color .3s, background .3s; }
+  .addlec input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: #b04a2c; }
+  .addlec b { display: block; font: 700 14.5px/1.3 var(--sans); color: var(--wine); }
+  .addlec small { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.4; color: #5f6680; }
+  .addlec em { font-size: 18px; line-height: 1; color: #b04a2c; text-align: right; }
+  .addlec em s { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 500; color: #5f6680; }
+  .with-lec .addlec { border-color: #b04a2c; background: #fff7f3; }
+  .pnote { margin: -4px 0 0; text-align: center; font-size: 13px; font-weight: 600; line-height: 1.4; color: #a9452a; }
+  .gc-links { display: grid; gap: 12px; justify-items: center; }
+  .gc-links .more { width: 100%; }
+  .promo .more { border-color: var(--wine); color: var(--wine); }
+  .promo .more:hover { background: #fbf3ef; }
+  .sample { font: 700 14px/1.3 var(--sans); color: #a9452a; text-decoration: underline; text-underline-offset: 3px; }
+  .ficha .sample { display: inline-block; margin-top: 4px; color: var(--gold); }
+  .promo .gc .gift { color: #5f6680; }
+  .promo .gc .gift b { color: #a9452a; }
+  .excl { max-width: 820px; margin: 28px 0 0; font-size: 13.5px; color: var(--muted); }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .hook .no::after { transform: scaleX(1) rotate(-6deg); }
@@ -1053,7 +1130,6 @@
 </head>
 <body>
 
-
 <div class="progress" aria-hidden="true"></div>
 <div class="glow-cursor" aria-hidden="true" data-glow></div>
 
@@ -1061,11 +1137,11 @@
 
 <!-- 1 · PROMISE: pain + result -->
 <header class="hero hero4" data-hero>
-  <img class="h4-bg" src="img/veronica-regalo-noche.jpg?v=2" data-ribbon-x="552" alt="Verónica Dudamell, nutricionista, con bata blanca y un regalo con cinta dorada">
+  <img class="h4-bg" src="img/veronica-bata-recorte.webp" alt="Verónica Dudamell, nutricionista, con bata blanca">
   <div class="h4-veil" aria-hidden="true"></div>
   <div class="gut h4-top"><div class="wrap"><nav class="topnav" aria-label="Principal">
       <span class="brand">Veronica <em>Wellness</em></span>
-      <span class="links"><a href="#examenes">Exámenes</a><a href="#regalo">Tu regalo</a><a href="#oferta">Oferta</a><a href="#preguntas">Preguntas</a></span>
+      <span class="links"><a href="#regalo">Tu regalo</a><a href="#examenes">Tu promo</a><a href="#preguntas">Preguntas</a></span>
       <a class="pillbtn" href="#examenes">Comprar</a>
     </nav></div></div>
   <div class="gut h4-body"><div class="wrap"><div class="h4-copy">
@@ -1074,13 +1150,10 @@
       <p class="h2-sub">Este Black Friday descubre qué está pasando con tus alimentos, tus hormonas o tu intestino, con 20 % menos y la lectura de Verónica.</p>
       <div class="act">
         <a class="btn" href="#examenes">Quiero entender mi cuerpo <span class="arr">→</span></a>
-        <span class="from">desde <s>$344</s> <b>$275</b></span>
+        <span class="from">desde <s>$344</s> <b>$275.20</b></span>
       </div>
-      <span class="kl"><b>Klarna.</b> o 4 pagos de $68.75 sin intereses</span>
-      <div class="clock">
-        <span class="clock-lbl" data-clock-lbl>La oferta termina en</span>
-        <div class="clock-cells" data-clock><span><b data-d>--</b>días</span><span><b data-h>--</b>horas</span><span><b data-m>--</b>min</span><span><b data-s>--</b>seg</span></div>
-      </div>
+      <span class="kl"><b>Klarna.</b> o 4 pagos sin intereses</span>
+      <p class="valid">Válida hasta el 1 de diciembre</p>
     </div></div></div>
   <div class="h2-seal h4-seal" aria-label="20 por ciento de descuento">
         <svg viewBox="0 0 150 150" aria-hidden="true"><defs><path id="ring3" d="M75,75 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"/></defs><text><textPath href="#ring3">Black Friday · Veronica Wellness · </textPath></text></svg>
@@ -1132,129 +1205,101 @@
       <div class="cap" data-cap="1">
         <span class="eyebrow">Adentro</span>
         <h2 class="hook">Tres exámenes con <em class="foil">20 % menos.</em></h2>
-        <ul class="caplist"><li><span>Sensibilidad a 184 alimentos</span><s>$344</s><b>$275</b></li><li><span>DUTCH Plus</span><s>$578</s><b>$461</b></li><li><span>GI-Advanced</span><s>$562</s><b>$449</b></li></ul>
-        <span class="kl"><b>Klarna.</b> Paga en 4 cuotas sin intereses</span>
+        <div class="capcard"><ul class="caplist"><li><span>Sensibilidad a 184 alimentos</span><s>$344</s><b>$275.20</b></li><li><span>DUTCH Plus</span><s>$578</s><b>$462.40</b></li><li><span>GI-Advanced</span><s>$562</s><b>$449.60</b></li></ul>
+        <span class="kl"><b>Klarna.</b> Paga en 4 cuotas sin intereses</span></div>
       </div>
       <div class="cap" data-cap="2">
         <span class="eyebrow">Y de regalo</span>
         <h2 class="hook">El recetario de <em class="foil">30 desayunos antiinflamatorios.</em></h2>
-        <p class="hero-sub">Con cualquier examen. La lectura con Verónica, a $150 en vez de $161.</p>
-        <div class="clock">
-          <span class="clock-lbl" data-clock-lbl>La oferta termina en</span>
-          <div class="clock-cells" data-clock><span><b data-d>--</b>días</span><span><b data-h>--</b>horas</span><span><b data-m>--</b>min</span><span><b data-s>--</b>seg</span></div>
+        <div class="capcard giftcard">
+          <p class="gc-intro">Con la compra de 1 o más exámenes recibirás:</p>
+          <div class="gline"><img src="recetario.jpg" alt="" width="44" height="58"><b>Recetario: 30 desayunos antiinflamatorios express</b><span class="amt"><s>$20</s><strong>GRATIS</strong></span></div>
+          <p class="gc-intro">Puedes incluir:</p>
+          <div class="gline"><span class="gl-txt"><b>Primera asesoría con lectura de tu examen</b><small>7 % menos. Tarifa válida para 1 examen.</small></span><span class="amt"><s>$161</s><strong>$150</strong></span></div>
         </div>
         <div class="act"><a class="btn" href="#examenes">Ver los exámenes <span class="arr">→</span></a></div>
       </div>
     </div>
-    <span class="scrollhint" aria-hidden="true">Baja para abrir tu regalo</span>
+    <span class="scrollhint" aria-hidden="true">Sigue bajando para descubrir la sorpresa</span>
   </div>
 </section>
 
-<!-- 2 · PROBLEM -->
-<section class="read sec gut">
-  <div class="wrap">
-    <span class="eyebrow">El problema</span>
-    <h2 class="h2">¿Te pasa <em>que…?</em></h2>
-    <div class="sx">
-      <article class="rise"><span class="n">01</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 15h22a11 11 0 0 1-22 0Z"/><path d="M16 15c0-4 2-7 6-8"/><path d="M12 15c-1-3 0-5 2-6"/><path d="M11 27h10"/></svg></span><p>Comes sano y aun así <em>algo te cae mal.</em></p></article>
-      <article class="rise"><span class="n">02</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 28V9"/><path d="M16 13c-3 0-5-2-5-5 3 0 5 2 5 5Zm0 0c3 0 5-2 5-5-3 0-5 2-5 5Z"/><path d="M16 19c-3 0-5-2-5-5 3 0 5 2 5 5Zm0 0c3 0 5-2 5-5-3 0-5 2-5 5Z"/><path d="M5 27 27 5"/></svg></span><p>Ya quitaste el gluten, los lácteos, el azúcar. <em>Y sigues igual.</em></p></article>
-      <article class="rise"><span class="n">03</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="10" width="21" height="12" rx="3"/><path d="M28 14v4"/><path d="M8 14v4"/></svg></span><p>Te despiertas <em>cansada</em> aunque hayas dormido.</p></article>
-      <article class="rise"><span class="n">04</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M20 5a11 11 0 1 0 7 17A9 9 0 0 1 20 5Z"/><path d="M23 9h.01M26 13h.01"/></svg></span><p>Tu ciclo cambió, el sueño también, y <em>nadie te explica por qué.</em></p></article>
-      <article class="rise"><span class="n">05</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="6" width="18" height="22" rx="3"/><path d="M12 6V4h8v2"/><path d="m12 17 3 3 6-6"/></svg></span><p>Te hiciste análisis. Todo salió <em>«normal».</em></p></article>
-      <article class="rise last-card"><span class="n">06</span><span class="ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 8a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-8l-6 5v-5H9a3 3 0 0 1-3-3Z"/><path d="M13.5 10.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5"/><path d="M16 17.5h.01"/></svg></span><p>Y empiezas a pensar que la que exagera eres tú.</p></article>
-    </div>
-    <div class="turn2">
-      <span class="t2-line" aria-hidden="true"></span>
-      <h3>No <em>exageras.</em><svg class="t2-under" viewBox="0 0 520 40" aria-hidden="true"><path d="M6 28 C 120 6, 260 38, 380 18 S 500 14, 514 22"/></svg></h3>
-      <p>No necesitas seguir probando dietas y suplementos a ciegas. <strong>Necesitas saber qué está pasando en tu cuerpo</strong>, y a alguien que te ayude a leerlo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 2b · WHY: routine labs vs Veronica Wellness -->
-<section class="cmp sec gut">
-  <div class="wrap">
-    <div class="cmp-head">
-      <span class="eyebrow">Por qué es distinto</span>
-      <h2 class="h2">Un análisis de rutina <em>vs.</em> un examen con Veronica Wellness</h2>
-    </div>
-    <div class="vs2">
-      <article class="vs-card plain">
-        <header><span class="vs-ic"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="4" width="16" height="24" rx="2"/><path d="M12 10h8M12 15h8M12 20h5"/></svg></span><h3>Análisis de rutina</h3></header>
-        <ul><li><small>Qué mira</small><span>Marcadores básicos de rutina.</span></li><li><small>Cómo lo recibes</small><span>Una hoja con «normal» o «fuera de rango».</span></li><li><small>Cómo se leen</small><span>Con rangos pensados para la población general.</span></li><li><small>Qué pasa después</small><span>Si todo sale «normal», muchas veces nada.</span></li><li><small>Cómo se hace</small><span>Cita en un laboratorio.</span></li></ul>
-      </article>
-      <span class="vs-mid" aria-hidden="true">vs</span>
-      <article class="vs-card star">
-        <span class="vs-badge">Black Friday · −20 %</span>
-        <header><img src="img/veronica-te-sonrisa.jpg" alt="Verónica Dudamell"><h3>Con <em>Veronica Wellness</em></h3></header>
-        <ul><li><small>Qué mira</small><span>Hasta 184 alimentos, 35 mediciones de tus hormonas o 98 marcadores de tu intestino.</span></li><li><small>Cómo lo recibes</small><span>Tus resultados explicados por Verónica, en palabras simples.</span></li><li><small>Cómo se leen</small><span>Junto a tus síntomas y tu historia.</span></li><li><small>Qué pasa después</small><span>Un plan de acción para tu comida y tu rutina.</span></li><li><small>Cómo se hace</small><span>Un kit que llega a tu casa con sus instrucciones.</span></li></ul>
-        <div class="vs-cta"><a class="btn" href="#examenes">Quiero entender mi cuerpo <span class="arr">→</span></a><span class="kl"><b>Klarna.</b> o 4 pagos sin intereses</span></div>
-      </article>
-    </div>
-    <p class="cmp-note">No reemplaza la atención de tu médico: suma información para entender lo que sientes.</p>
-
-  </div>
+<!-- 1d · URGENCY: Verónica's 5-minute countdown, per visitor; at zero it says the price is still on until 1 Dec -->
+<section class="rush gut" aria-label="Cuenta regresiva">
+  <div class="wrap"><div class="rush-card">
+    <span class="eyebrow">Black Friday · −20 %</span>
+    <p class="rush-t" data-rush-t>Aprovecha esta súper oferta en los próximos 5 minutos</p>
+    <div class="clock-cells rush-cells" data-rush><span><b data-rm>05</b>min</span><span><b data-rs>00</b>seg</span></div>
+    <a class="btn" href="#examenes">Ver mi promo <span class="arr">→</span></a>
+    <p class="rush-fine">Válida hasta el 1 de diciembre.</p>
+  </div></div>
 </section>
 
 <!-- 3 · SOLUTION -->
-<section class="sec gut" id="examenes">
+
+<section class="sec gut promo" id="examenes">
   <div class="wrap">
     <div class="tests-head">
-      <span class="eyebrow">La solución</span>
-      <h2 class="h2">Por eso creamos el <em class="foil">Black Friday de exámenes</em></h2>
-      <p class="lead">Tres exámenes funcionales con 20 % menos, cada uno para una pregunta distinta, y la lectura de Verónica para convertir tus resultados en un plan. Elige la pregunta que más te pesa hoy.</p>
+      <span class="eyebrow">Black Friday · hasta el 1 de diciembre</span>
+      <h2 class="h2">Tu promo <em class="foil">Black Friday</em></h2>
+      <p class="lead">Durante noviembre y hasta el 1 de diciembre, tienes un 20 % de descuento en estos exámenes con el código BLACKFRIDAY. Con la compra de 1 o más, recibes el recetario «30 desayunos antiinflamatorios express», con valor de $20, gratis.</p>
     </div>
     <div class="cards">
-      <article class="gc rise" data-exam="ali"><div class="gc-in">
-        <div class="gc-top"><span class="lab">Alimentos · Alletess</span><span class="chip" aria-hidden="true"></span></div>
-        <p class="q">¿Qué de lo que como me está afectando?</p>
-        <h3>Sensibilidad a 184 alimentos</h3>
-        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Comes variado y algo te cae mal, pero no sabes qué.</li><li>El panel de 96 alimentos no explicó tus síntomas.</li><li>Quieres orientar una dieta de eliminación.</li></ul></div>
-        <p class="note">Mide tu respuesta IgG a 184 alimentos. No diagnostica alergias.</p>
-        <div class="price"><div><s>antes $344</s><strong data-count="344" data-to="275">$275</strong></div><span class="save">ahorras<br>$69</span></div>
-        <span class="kl"><b>Klarna.</b> o 4 pagos de $68.75 sin intereses</span>
-        <a class="btn" href="https://veronicawellness.com/checkout/examenes/?examen=184-igg-food-sensitivity-panel&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
-        <button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button>
-        <p class="gift">+ <b>recetario de regalo</b></p>
+      <article class="gc rise" data-exam="ali" data-now="275.2"><div class="gc-in">
+        <div class="gc-top"><span class="lab">Alimentos · Alletess</span><span class="tag20">−20 %</span></div>
+        <h3 class="gname">Sensibilidades alimentarias · Alletess 184 alimentos</h3>
+        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Comes alimentos variados.</li><li>Tienes alergias respiratorias o en la piel con frecuencia.</li><li>A lo largo del día terminas con el abdomen como un globo.</li><li>Tienes molestias digestivas y no sabes qué las detona.</li></ul></div>
+        <p class="note">Evalúa respuestas IgG relacionadas con sensibilidades alimentarias; no diagnostica ni descarta alergias.</p>
+        <div class="price"><div><s>Precio regular $344</s><strong data-count="344" data-to="275.2">$275.20</strong><small class="fee-l">+ $25 de laboratorio al pagar</small></div><span class="save">ahorras<br>$68.80</span></div>
+        <span class="kl"><b>Klarna.</b> <span>o 4 pagos de <i data-kl>$75.05</i> sin intereses</span></span>
+        <label class="addlec"><input type="checkbox" data-lec><span><b>Agregar la lectura con Verónica</b><small>Puedes incluir la lectura con Verónica para recibir un plan personalizado según tus resultados, tu historia y tus hábitos. Tarifa válida para 1 examen.</small></span><em><s>$161</s>$150</em></label>
+        <a class="btn" data-buy href="https://veronicawellness.com/checkout/examenes/?examen=184-igg-food-sensitivity-panel&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
+        <p class="pnote">En el pago verás primero el precio regular: el 20 % de tu código BLACKFRIDAY se aplica en el último paso.</p>
+        <div class="gc-links"><button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button></div>
+        <p class="gift">+ <b>recetario de regalo</b> · valor $20</p>
       </div></article>
-      <article class="gc rise" data-exam="hor"><div class="gc-in">
-        <div class="gc-top"><span class="lab">Hormonas · DUTCH</span><span class="chip" aria-hidden="true"></span></div>
-        <p class="q">¿Qué pasa con mis hormonas y mi cortisol?</p>
-        <h3>DUTCH Plus</h3>
-        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Te despiertas con fatiga o estás en burnout.</li><li>Tienes insomnio o ansiedad.</li><li>Tienes SPM o estás en perimenopausia.</li></ul></div>
-        <p class="note">Mide 35 hormonas y metabolitos y el ritmo de tu cortisol. Se toma en casa.</p>
-        <div class="price"><div><s>antes $578</s><strong data-count="578" data-to="461">$461</strong></div><span class="save">ahorras<br>$117</span></div>
-        <span class="kl"><b>Klarna.</b> o 4 pagos de $115.25 sin intereses</span>
-        <a class="btn" href="https://veronicawellness.com/checkout/examenes/?examen=dutch-plus-hormonas-sexuales-adrenal&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
-        <button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button>
-        <p class="gift">+ <b>recetario de regalo</b></p>
+      <article class="gc rise" data-exam="hor" data-now="462.4"><div class="gc-in">
+        <div class="gc-top"><span class="lab">Hormonas · DUTCH</span><span class="tag20">−20 %</span></div>
+        <h3 class="gname">Perfil hormonal en orina y saliva · DUTCH Plus</h3>
+        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Estás en perimenopausia.</li><li>Tienes o tuviste ovarios poliquísticos, endometriosis, miomas o alteraciones en tu ciclo.</li><li>Estás buscando un embarazo.</li><li>Después del embarazo, sientes que tu cuerpo no está igual.</li><li>Tienes síntomas premenstruales intensos, acné o dificultad para perder peso.</li></ul></div>
+        <p class="note">Mide hormonas, sus metabolitos y el ritmo del cortisol durante el día, con muestras de orina y saliva desde la comodidad de tu hogar.</p>
+        <div class="price"><div><s>Precio regular $578</s><strong data-count="578" data-to="462.4">$462.40</strong><small class="fee-l">+ $25 de laboratorio al pagar</small></div><span class="save">ahorras<br>$115.60</span></div>
+        <span class="kl"><b>Klarna.</b> <span>o 4 pagos de <i data-kl>$121.85</i> sin intereses</span></span>
+        <label class="addlec"><input type="checkbox" data-lec><span><b>Agregar la lectura con Verónica</b><small>Te recomiendo incluir la lectura para poner tus resultados en contexto y obtener un plan de acción personalizado. Tarifa válida para 1 examen.</small></span><em><s>$161</s>$150</em></label>
+        <a class="btn" data-buy href="https://veronicawellness.com/checkout/examenes/?examen=dutch-plus-hormonas-sexuales-adrenal&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
+        <p class="pnote">En el pago verás primero el precio regular: el 20 % de tu código BLACKFRIDAY se aplica en el último paso.</p>
+        <div class="gc-links"><button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button><a class="sample" href="https://dutchtest.com/api/files/file/Female%20DUTCH%20Plus.pdf" target="_blank" rel="noopener">Ver informe de ejemplo (PDF) <span aria-hidden="true">↗</span></a></div>
+        <p class="gift">+ <b>recetario de regalo</b> · valor $20</p>
       </div></article>
-      <article class="gc rise" data-exam="gi"><div class="gc-in">
-        <div class="gc-top"><span class="lab">Intestino · US BioTek</span><span class="chip" aria-hidden="true"></span></div>
-        <p class="q">¿Qué está pasando en mi intestino?</p>
-        <h3>GI-Advanced</h3>
-        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Tienes una condición autoinmune o alergias.</li><li>Tienes desbalance hormonal.</li><li>Te hablaron de inflamación y quieres ver tu intestino.</li></ul></div>
-        <p class="note">98 marcadores, con zonulina y H. pylori incluidos.</p>
-        <div class="price"><div><s>antes $562</s><strong data-count="562" data-to="449">$449</strong></div><span class="save">ahorras<br>$113</span></div>
-        <span class="kl"><b>Klarna.</b> o 4 pagos de $112.25 sin intereses</span>
-        <a class="btn" href="https://veronicawellness.com/checkout/examenes/?examen=gi-advanced-profile-includes-zonulin-and-h-pylori&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
-        <button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button>
-        <p class="gift">+ <b>recetario de regalo</b></p>
+      <article class="gc rise" data-exam="gi" data-now="449.6"><div class="gc-in">
+        <div class="gc-top"><span class="lab">Intestino · US BioTek</span><span class="tag20">−20 %</span></div>
+        <h3 class="gname">Examen de heces con H. pylori y zonulina · GI-Advanced de US BioTek</h3>
+        <div class="ideal"><span>Ideal para ti si…</span><ul><li>Tienes molestias digestivas con frecuencia.</li><li>Tienes manifestaciones en la piel, como eczema, dermatitis, psoriasis, urticaria o rosácea.</li><li>Te diagnosticaron una condición autoinmune.</li><li>Tienes ansiedad, ataques de pánico o depresión.</li></ul></div>
+        <p class="note">Analiza el microbioma, microorganismos y marcadores de inflamación y permeabilidad intestinal. No es una prueba diagnóstica.</p>
+        <div class="price"><div><s>Precio regular $562</s><strong data-count="562" data-to="449.6">$449.60</strong><small class="fee-l">+ $25 de laboratorio al pagar</small></div><span class="save">ahorras<br>$112.40</span></div>
+        <span class="kl"><b>Klarna.</b> <span>o 4 pagos de <i data-kl>$118.65</i> sin intereses</span></span>
+        <label class="addlec"><input type="checkbox" data-lec><span><b>Agregar la lectura con Verónica</b><small>Te recomiendo incluir la cita de lectura para obtener un plan de acción basado en tus resultados y tus metas de salud. Tarifa válida para 1 examen.</small></span><em><s>$161</s>$150</em></label>
+        <a class="btn" data-buy href="https://veronicawellness.com/checkout/examenes/?examen=gi-advanced-profile-includes-zonulin-and-h-pylori&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Lo quiero <span class="arr">→</span></a>
+        <p class="pnote">En el pago verás primero el precio regular: el 20 % de tu código BLACKFRIDAY se aplica en el último paso.</p>
+        <div class="gc-links"><button type="button" class="more" data-ficha>Ver ficha completa <span aria-hidden="true">+</span></button><a class="sample" href="https://www.usbiotek.com/hubfs/Content/Connection%20Model/Sample%20Reports/Sample%20Report%20-%20Microbiome%20-%20GI%20Advanced.pdf" target="_blank" rel="noopener">Ver informe de ejemplo (PDF) <span aria-hidden="true">↗</span></a></div>
+        <p class="gift">+ <b>recetario de regalo</b> · valor $20</p>
       </div></article>
     </div>
+    <p class="excl">Envíos solo dentro de Estados Unidos. La promoción no aplica para envíos a Puerto Rico, Nueva York (NY), Nueva Jersey (NJ), Rhode Island (RI) ni Hawái (HI). Si vives en alguno de estos lugares, elige una dirección de envío fuera de ellos y dentro de Estados Unidos.</p>
   </div>
 </section>
 
-<!-- 4 · BENEFITS -->
-<section class="benefits sec gut">
+<!-- 6d · OFFER: after paying -->
+<section class="sec gut steps-sec">
   <div class="wrap">
-    <span class="eyebrow">Qué cambia para ti</span>
-    <h2 class="h2" style="margin-top:16px">Lo que ganas <em class="foil">con tus resultados</em></h2>
-    <div class="bens">
-      <article class="ben rise"><span class="ben-n foil">I</span><h3>Recupera los meses de prueba y error</h3><p>Gracias a resultados que te muestran por dónde empezar, dejas de cambiar de dieta cada semana.</p></article>
-      <article class="ben rise"><span class="ben-n foil">II</span><h3>Consigue un plan hecho para ti</h3><p>Con la lectura, Verónica traduce tus resultados en pasos concretos para tu comida y tu rutina.</p></article>
-      <article class="ben rise"><span class="ben-n foil">III</span><h3>Deja de preguntarte si exageras</h3><p>Porque tendrás información sobre tu cuerpo en la mano, y alguien que te la explica.</p></article>
-    </div>
+    <span class="eyebrow">Así de simple</span>
+    <h2 class="h2" style="margin-top:16px">Qué pasa <em>después de pagar</em></h2>
+    <ol class="steps">
+      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M12 4h8M14 4v9l-6 11a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 24 24l-6-11V4"/><path d="M11 19h10"/></svg></span><h3>Eliges tu examen</h3><p>El botón ya lleva el código BLACKFRIDAY.</p></li>
+      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="3"/><path d="M4 13h24M8 19h6"/><path d="M22 17l3 3M25 17l-3 3"/></svg></span><h3>Pagas con 20 % menos</h3><p>En el checkout puedes sumar la lectura por $150.</p></li>
+      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 10l12-6 12 6v12l-12 6-12-6z"/><path d="M4 10l12 6 12-6M16 16v12"/><path d="M10 7l12 6"/></svg></span><h3>Recibes tu kit</h3><p>Llega a tu dirección en Estados Unidos con sus instrucciones.</p></li>
+      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="4" width="18" height="24" rx="3"/><path d="M11 22v-4M16 22v-8M21 22v-6"/><path d="M11 9h10"/></svg></span><h3>Revisas tus resultados</h3><p>Con la lectura, Verónica te los explica y te da un plan.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -1269,8 +1314,21 @@
     <div class="meet-copy">
       <span class="eyebrow">Detrás de cada plan</span>
       <h2 class="h2">Hola, soy <em class="foil">Verónica</em></h2>
-      <p class="lead">Soy nutricionista. Leo cada resultado contigo y lo convierto en un plan que puedes seguir con tu comida y tu rutina. No te dejo sola con un PDF lleno de números: te explico qué significa y por dónde empezar.</p>
+      <p class="lead">Estudié nutrición y hoy acompaño a mis clientes desde una perspectiva holística, funcional e integral. Leo cada resultado contigo y lo convierto en un plan que puedes seguir con tu comida y tu rutina. No te dejo sola con un PDF lleno de números: te explico qué significa y por dónde empezar.</p>
       <a class="handle" href="https://www.instagram.com/verodudamell/" target="_blank" rel="noopener">@verodudamell en Instagram <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · BENEFITS -->
+<section class="benefits sec gut">
+  <div class="wrap">
+    <span class="eyebrow">Qué cambia para ti</span>
+    <h2 class="h2" style="margin-top:16px">Lo que ganas <em class="foil">con tus resultados</em></h2>
+    <div class="bens">
+      <article class="ben rise"><span class="ben-n foil">I</span><h3>Recupera los meses de prueba y error</h3><p>Gracias a resultados que te muestran por dónde empezar, dejas de cambiar de dieta cada semana.</p></article>
+      <article class="ben rise"><span class="ben-n foil">II</span><h3>Consigue un plan hecho para ti</h3><p>Con la lectura, Verónica traduce tus resultados en pasos concretos para tu comida y tu rutina.</p></article>
+      <article class="ben rise"><span class="ben-n foil">III</span><h3>Deja de preguntarte si exageras</h3><p>Porque tendrás información sobre tu cuerpo en la mano, y alguien que te la explica.</p></article>
     </div>
   </div>
 </section>
@@ -1341,153 +1399,18 @@
   </div>
 </section>
 
-<!-- 6 · OFFER -->
-<section class="offer sec gut" id="oferta">
-  <div class="wrap offer-grid">
-    <div style="display:grid;gap:18px;min-width:0">
-      <span class="eyebrow">La oferta</span>
-      <h2 class="h2">Suma todo <em class="foil">y mira lo que pagas</em></h2>
-      <p class="lead">El examen con 20 % menos, el recetario gratis y, si quieres, la lectura con Verónica a precio de Black Friday.</p>
-      <div class="bonus-shot">
-        <img src="recetario.jpg" alt="Portada del recetario 30 desayunos antiinflamatorios express">
-        <p><b>De regalo: 30 desayunos antiinflamatorios express</b>26 a 35 g de proteína por porción. 16 recetas listas en 15 minutos o menos. Llega con cualquier examen.</p>
-      </div>
-    </div>
-    <div style="min-width:0">
-      <div class="tabs" role="group" aria-label="Elige el examen">
-        <button type="button" data-tab="ali" aria-pressed="false">184 alimentos</button>
-        <button type="button" data-tab="hor" aria-pressed="true">DUTCH Plus</button>
-        <button type="button" data-tab="gi" aria-pressed="false">GI-Advanced</button>
-      </div>
-      <div class="receipt">
-        <div class="r-head"><b>Tu pedido</b><span>Código BLACKFRIDAY</span></div>
-        <div class="line"><div><b data-r-name>DUTCH Plus</b><small>Examen con 20 % menos</small></div><div class="amt"><s data-r-was>$578</s><strong data-r-now>$461</strong></div></div>
-        <div class="line"><div><b>Recetario: 30 desayunos antiinflamatorios</b><small>Regalo con cualquier examen</small></div><div class="amt"><s>$20</s><strong class="free">gratis</strong></div></div>
-        <div class="line"><label for="add-lectura"><input type="checkbox" id="add-lectura" checked><span><b>Lectura con Verónica y plan de acción</b><small>Opcional. Se agrega en el checkout.</small></span></label><div class="amt"><s>$161</s><strong>$150</strong></div></div>
-        <div class="tot">
-          <div class="worth"><span>Valor normal</span><s data-r-worth>$759</s></div>
-          <div class="pay"><span>Hoy pagas</span><strong data-r-pay>$611</strong></div>
-          <div class="saved"><span>Te ahorras</span><b data-r-saved>$148</b></div>
-          <div class="r-kl"><span class="kl"><b>Klarna.</b> o 4 pagos de <span data-r-kl>$152.75</span> sin intereses</span></div>
-        </div>
-        <a class="btn" data-r-link href="https://veronicawellness.com/checkout/examenes/?examen=dutch-plus-hormonas-sexuales-adrenal&amp;cupon=BLACKFRIDAY" target="_blank" rel="noopener">Comprar mi examen <span class="arr">→</span></a>
-        <p class="fee">Precios en USD. Al pagar se suman $25 de laboratorio por examen. El kit se envía a tu dirección en EE. UU. Válido hasta el 1 de diciembre.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6b · OFFER: support -->
-<section class="with sec gut">
-  <div class="wrap with2">
-    <div class="w-copy">
-      <span class="eyebrow">Acompañamiento · opcional</span>
-      <h2 class="h2">Un resultado sin lectura <em>son solo números.</em></h2>
-      <p class="lead">Agrega la lectura con Verónica y conviertes tu informe en un plan. Sales sabiendo qué significa cada resultado y qué hacer primero.</p>
-      <ol class="w-steps">
-        <li><b>Revisan juntas tu informe</b><span>Verónica te explica tus resultados en palabras simples.</span></li>
-        <li><b>Ordenan prioridades</b><span>Qué atender primero y qué puede esperar.</span></li>
-        <li><b>Te llevas tu plan</b><span>Un plan de acción para tu comida y tu rutina.</span></li>
-      </ol>
-      <div class="w-price"><div><s>$161</s><strong>$150</strong><span>precio Black Friday</span></div><a class="btn" href="#examenes">Elegir mi examen <span class="arr">→</span></a></div>
-      <p class="w-note">La lectura se agrega en el checkout, junto con tu examen.</p>
-    </div>
-    <div class="w-visual" data-wvis>
-      <div class="w-arch"><img src="img/veronica-bata-laptop.jpg" alt="Verónica Dudamell sonriendo con su laptop" loading="lazy"></div>
-      <div class="w-pdf" aria-hidden="true">
-        <span class="hd">Tu informe · página 7 de 24</span>
-        <div class="row"><span>Cortisol al despertar</span><span>3.1</span><span>L</span></div>
-        <div class="row"><span>16-OH-E1</span><span>0.21</span><span>H</span></div>
-        <div class="row"><span>Melatonina</span><span>9.0</span><span>L</span></div>
-        <div class="row"><span>DHEA-S</span><span>1 840</span><span>OK</span></div>
-      </div>
-      <div class="w-arrow" aria-hidden="true">↓</div>
-      <div class="w-plan" aria-hidden="true">
-        <span class="hd">Tu plan con Verónica</span>
-        <div class="pl"><i>1</i><span><b>Tu plato, por fin con sentido</b><small>Lo que tu cuerpo te está pidiendo, escrito para ti. Cero dietas genéricas.</small></span></div>
-        <div class="pl"><i>2</i><span><b>Tu día, rediseñado</b><small>Sueño, movimiento y estrés ordenados para tu vida real, no para la de un libro.</small></span></div>
-        <div class="pl"><i>3</i><span><b>Tu cuerpo, con mapa</b><small>Sabes qué medir después y cómo comprobar que vas avanzando.</small></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6c · OFFER: what arrives -->
-<section class="kits sec gut">
-  <div class="wrap">
-    <div class="kits-head">
-      <span class="eyebrow">Lo que llega a tu casa</span>
-      <h2 class="h2">Tu kit, <em class="foil">listo para empezar</em></h2>
-      <p class="lead">Cada examen llega en su kit con las instrucciones para tomar la muestra. Pasa el cursor o toca un kit para abrirlo.</p>
-    </div>
-    <div class="kit-row">
-      <figure class="kit-fig" tabindex="0" data-kit>
-        <div class="kit-scene"><div class="kit">
-          <div class="kb"></div><div class="inside"></div>
-          <div class="kf back"></div><div class="ks left"></div>
-          <div class="item"><span style="--i:0">🥑</span><span style="--i:1">🥛</span><span style="--i:2">🍞</span></div>
-          <div class="ks right"><span>184 alimentos</span></div>
-          <div class="kf front"><span class="mk">Veronica Wellness</span><strong>184 alimentos</strong><small>Panel IgG · Alletess</small></div>
-          <div class="lid"><b>BF</b></div>
-        </div></div>
-        <div class="shadow" aria-hidden="true"></div>
-        <figcaption><b>Sensibilidad a 184 alimentos</b><span>Panel IgG de Alletess</span></figcaption>
-      </figure>
-      <figure class="kit-fig" tabindex="0" data-kit>
-        <div class="kit-scene"><div class="kit">
-          <div class="kb"></div><div class="inside"></div>
-          <div class="kf back"></div><div class="ks left"></div>
-          <div class="item"><span style="--i:0">💧</span><span style="--i:1">🧪</span><span style="--i:2">🌙</span></div>
-          <div class="ks right"><span>DUTCH Plus</span></div>
-          <div class="kf front"><span class="mk">Veronica Wellness</span><strong>DUTCH Plus</strong><small>Orina seca y saliva</small></div>
-          <div class="lid"><b>BF</b></div>
-        </div></div>
-        <div class="shadow" aria-hidden="true"></div>
-        <figcaption><b>DUTCH Plus</b><span>Orina seca y saliva, tomadas en casa</span></figcaption>
-      </figure>
-      <figure class="kit-fig" tabindex="0" data-kit>
-        <div class="kit-scene"><div class="kit">
-          <div class="kb"></div><div class="inside"></div>
-          <div class="kf back"></div><div class="ks left"></div>
-          <div class="item"><span style="--i:0">💩</span><span style="--i:1">🦠</span><span style="--i:2">🔬</span></div>
-          <div class="ks right"><span>GI-Advanced</span></div>
-          <div class="kf front"><span class="mk">Veronica Wellness</span><strong>GI-Advanced</strong><small>Muestra de heces · US BioTek</small></div>
-          <div class="lid"><b>BF</b></div>
-        </div></div>
-        <div class="shadow" aria-hidden="true"></div>
-        <figcaption><b>GI-Advanced</b><span>Muestra de heces, 98 marcadores</span></figcaption>
-      </figure>
-    </div>
-    <p class="kit-note">Ilustración. El kit que recibes puede verse distinto.</p>
-  </div>
-</section>
-
-<!-- 6d · OFFER: after paying -->
-<section class="sec gut steps-sec">
-  <div class="wrap">
-    <span class="eyebrow">Así de simple</span>
-    <h2 class="h2" style="margin-top:16px">Qué pasa <em>después de pagar</em></h2>
-    <ol class="steps">
-      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M12 4h8M14 4v9l-6 11a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 24 24l-6-11V4"/><path d="M11 19h10"/></svg></span><h3>Eliges tu examen</h3><p>El botón ya lleva el código BLACKFRIDAY.</p></li>
-      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="3"/><path d="M4 13h24M8 19h6"/><path d="M22 17l3 3M25 17l-3 3"/></svg></span><h3>Pagas con 20 % menos</h3><p>En el checkout puedes sumar la lectura por $150.</p></li>
-      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 10l12-6 12 6v12l-12 6-12-6z"/><path d="M4 10l12 6 12-6M16 16v12"/><path d="M10 7l12 6"/></svg></span><h3>Recibes tu kit</h3><p>Llega a tu dirección en Estados Unidos con sus instrucciones.</p></li>
-      <li><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="7" y="4" width="18" height="24" rx="3"/><path d="M11 22v-4M16 22v-8M21 22v-6"/><path d="M11 9h10"/></svg></span><h3>Revisas tus resultados</h3><p>Con la lectura, Verónica te los explica y te da un plan.</p></li>
-    </ol>
-  </div>
-</section>
-
 <!-- 7 · OBJECTIONS -->
 <section class="sec gut faq-sec" id="preguntas">
   <div class="wrap">
     <h2 class="h2">Lo que te estás <em>preguntando</em></h2>
     <div class="faq-list">
-      <details><summary>¿Es para mí?</summary><p>Si te viste en alguna de las situaciones de «¿Te pasa que…?», sí. Cada tarjeta de examen dice para quién es. Si dudas, empieza por la pregunta que más te pesa hoy.</p></details>
+      <details><summary>¿Es para mí?</summary><p>Cada tarjeta de examen dice para quién es en «Ideal para ti si…». Si dudas, empieza por la pregunta que más te pesa hoy.</p></details>
       <details><summary>¿Cómo funciona?</summary><p>Eliges tu examen y pagas con el 20 % ya aplicado. Te llega el kit con sus instrucciones, tomas la muestra y, si agregaste la lectura, Verónica revisa tus resultados contigo y te da un plan.</p></details>
       <details><summary>¿Cuánto tiempo requiere?</summary><p>Tomar la muestra lleva poco tiempo y cada kit trae sus instrucciones paso a paso. Los días que tardan los resultados dependen de cada laboratorio.</p></details>
       <details><summary>¿Qué pasa después de pagar?</summary><p>Tu kit se envía a la dirección que indicaste en Estados Unidos. Si agregaste la lectura, la revisas con Verónica cuando tengas tus resultados.</p></details>
       <details><summary>¿Y si necesito ayuda?</summary><p>Con la lectura no te quedas sola: Verónica te explica tus resultados y el primer paso. Para cualquier duda antes de comprar, escríbele por Instagram a @verodudamell.</p></details>
       <details><summary>¿Puedo pagar en cuotas?</summary><p>Sí. En el checkout puedes elegir Klarna y pagar en 4 cuotas sin intereses. Solo para compras en Estados Unidos, sujeto a aprobación de Klarna; las opciones dependen de tu perfil, el monto y tu estado, y los 4 pagos no están disponibles en Nuevo México ni Hawái.</p></details>
-      <details><summary>¿Hay cargos adicionales? ¿Hasta cuándo es la oferta?</summary><p>Al pagar se suman $25 de laboratorio por examen y el envío es solo dentro de Estados Unidos. La oferta dura todo noviembre y hasta el martes 1 de diciembre de 2026 a las 11:59 p. m., hora de Miami.</p></details>
+      <details><summary>¿Hay cargos adicionales? ¿Hasta cuándo es la oferta?</summary><p>Al pagar se suman $25 de laboratorio por examen. Envíos solo dentro de Estados Unidos. La promoción no aplica para envíos a Puerto Rico, Nueva York (NY), Nueva Jersey (NJ), Rhode Island (RI) ni Hawái (HI). Si vives en alguno de estos lugares, elige una dirección de envío fuera de ellos y dentro de Estados Unidos. En el pago verás primero el precio regular: el 20 % de tu código BLACKFRIDAY se aplica en el último paso. La oferta dura todo noviembre y hasta el martes 1 de diciembre de 2026 a las 11:59 p. m., hora de Miami.</p></details>
     </div>
   </div>
 </section>
@@ -1500,10 +1423,7 @@
     <p class="lead">20 % menos en tu examen, el recetario de regalo y la lectura a $150. El 2 de diciembre todo vuelve a su precio.</p>
     <a class="btn wine" href="#examenes">Quiero entender mi cuerpo <span class="arr">→</span></a>
     <p class="kl-last"><span class="kl"><b>Klarna.</b> Paga en 4 cuotas sin intereses</span></p>
-    <div class="clock">
-      <span class="clock-lbl" data-clock-lbl>La oferta termina en</span>
-      <div class="clock-cells" data-clock><span><b data-d>--</b>días</span><span><b data-h>--</b>horas</span><span><b data-m>--</b>min</span><span><b data-s>--</b>seg</span></div>
-    </div>
+    <p class="valid">Válida hasta el 1 de diciembre</p>
     <p class="fine">Precios en USD. Cargo de laboratorio: $25 por examen. Envíos solo en EE. UU. Los exámenes no diagnostican. Klarna: sujeto a aprobación; solo Estados Unidos; los 4 pagos no están disponibles en Nuevo México ni Hawái.</p>
   </div>
 </footer>
@@ -1542,7 +1462,7 @@
     const before = now < opens, over = now > closes;
     const r = Math.max(0, (before ? opens : closes) - now);
     const d = Math.floor(r / 864e5), h = Math.floor(r / 36e5) % 24, m = Math.floor(r / 6e4) % 60, s = Math.floor(r / 1e3) % 60;
-    document.querySelectorAll('[data-clock]').forEach((c) => {
+    document.querySelectorAll('[data-clock]').forEach((c) => { if (!c.querySelector('[data-d]')) return;
       c.querySelector('[data-d]').textContent = pad(d); c.querySelector('[data-h]').textContent = pad(h);
       c.querySelector('[data-m]').textContent = pad(m); c.querySelector('[data-s]').textContent = pad(s);
     });
@@ -1553,7 +1473,7 @@
   tick(); setInterval(tick, 1000);
 
   // Prices fall from the old price to the new one when a card comes into view.
-  const fmt = (v) => '$' + Math.round(v);
+  const fmt = (v) => '$' + (Math.abs(v - Math.round(v)) < .005 ? Math.round(v) : v.toFixed(2));
   if (!still && 'IntersectionObserver' in window) {
     const seen = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (!e.isIntersecting) return;
@@ -1581,30 +1501,32 @@
     c.addEventListener('pointerleave', () => { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
   });
 
-  // Offer receipt
-  const offer = {
-    ali: { name: 'Sensibilidad a 184 alimentos', was: 344, now: 275, id: '184-igg-food-sensitivity-panel' },
-    hor: { name: 'DUTCH Plus', was: 578, now: 461, id: 'dutch-plus-hormonas-sexuales-adrenal' },
-    gi: { name: 'GI-Advanced', was: 562, now: 449, id: 'gi-advanced-profile-includes-zonulin-and-h-pylori' },
-  };
-  const $ = (k) => document.querySelector(`[data-r-${k}]`);
-  const lec = document.getElementById('add-lectura');
-  let current = 'hor';
-  function render() {
-    const o = offer[current], withLec = lec.checked;
-    const worth = o.was + 20 + (withLec ? 161 : 0), pay = o.now + (withLec ? 150 : 0);
-    $('name').textContent = o.name; $('was').textContent = fmt(o.was); $('now').textContent = fmt(o.now);
-    $('worth').textContent = fmt(worth); $('pay').textContent = fmt(pay); $('saved').textContent = fmt(worth - pay);
-    $('kl').textContent = '$' + (pay / 4).toFixed(2);
-    $('link').href = `https://veronicawellness.com/checkout/examenes/?examen=${o.id}&cupon=BLACKFRIDAY`;
-  }
-  document.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => {
-    current = b.dataset.tab;
-    document.querySelectorAll('[data-tab]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    render();
-  }));
-  lec.addEventListener('change', render);
-  render();
+  // Each card can add the reading: the checkout opens with it, and Klarna counts it.
+  document.querySelectorAll('[data-exam]').forEach((card) => {
+    const box = card.querySelector('[data-lec]'), buy = card.querySelector('[data-buy]'), kl = card.querySelector('[data-kl]');
+    const base = buy.href, now = +card.dataset.now;
+    box.addEventListener('change', () => {
+      buy.href = box.checked ? base + '&lectura=LAYER_SESSION' : base;
+      kl.textContent = '$' + ((now + 25 + (box.checked ? 150 : 0)) / 4).toFixed(2);
+      card.classList.toggle('with-lec', box.checked);
+    });
+  });
+
+  // Verónica's 5-minute countdown. One per visitor (kept across reloads); at zero it does not
+  // pretend the offer is gone: it says the Black Friday price holds until 1 December.
+  (function rush() {
+    const box = document.querySelector('[data-rush]'), txt = document.querySelector('[data-rush-t]');
+    if (!box) return;
+    let t0 = Date.now();
+    try { const v = +localStorage.getItem('vw-bf-rush'); if (v && Date.now() - v < 864e5) t0 = v; else localStorage.setItem('vw-bf-rush', String(t0)); } catch (e) {}
+    const mm = box.querySelector('[data-rm]'), ss = box.querySelector('[data-rs]');
+    (function step() {
+      const r = Math.max(0, 300000 - (Date.now() - t0));
+      mm.textContent = String(Math.floor(r / 6e4)).padStart(2, '0'); ss.textContent = String(Math.floor(r / 1e3) % 60).padStart(2, '0');
+      if (r === 0) { box.hidden = true; txt.textContent = 'Tu precio Black Friday sigue disponible hasta el 1 de diciembre.'; return; }
+      setTimeout(step, 250);
+    })();
+  })();
 
   // The floating bar steps aside over the hero buttons and the final call.
   const dock = document.querySelector('[data-dock]');
@@ -1646,35 +1568,35 @@
     ali: {
       lab: 'Alimentos · Alletess', name: 'Sensibilidad a 184 alimentos (184 IgG Food Sensitivity Panel)',
       title: 'Deja de quitar alimentos <em>a ciegas.</em>', n: 184, nl: 'alimentos',
-      pain: ['Comes sano y algo te cae mal, pero no sabes qué.', 'Ya quitaste alimentos por intuición y no encontraste el patrón.', 'El panel de 96 alimentos no explicó tus síntomas.', 'Tu dieta es variada y necesitas revisar más alimentos.'],
-      measure: ['Respuesta IgG frente a 184 alimentos', 'Pescados, mariscos y carnes', 'Granos, frutas y verduras', 'Especias', 'Reacción retardada, que aparece de horas a días después de comer'],
-      why: 'Una reacción IgG puede aparecer horas o días después de comer. Por eso es tan difícil descubrirla sola. Este panel revisa 184 alimentos, casi el doble que el de 96, y te da una base clara para orientar tu dieta de eliminación.',
-      get: ['Tus resultados de IgG frente a 184 alimentos, incluidos pescados, mariscos y especias.', 'Información para orientar una dieta de eliminación.', 'De regalo: el recetario de 30 desayunos antiinflamatorios.', 'Opcional: la lectura con Verónica y tu plan de acción por $150.'],
-      sample: 'Recibes tu kit en Estados Unidos con las instrucciones para tomar la muestra.',
+      pain: ["Comes alimentos variados.", "Tienes alergias respiratorias o en la piel con frecuencia.", "A lo largo del día terminas con el abdomen como un globo.", "Tienes molestias digestivas y no sabes qué las detona."],
+      measure: ["Respuesta IgG a diferentes carnes, pescados y mariscos.", "Respuesta IgG a cereales, gluten, tubérculos y granos.", "Respuesta IgG a vegetales y frutas.", "Respuesta IgG a hierbas y especias.", "Respuesta IgG a café, té, chocolate, frutos secos y semillas."],
+      why: "¿Estás agotada de adivinar qué puede estar detrás de tus molestias? Este panel evalúa la respuesta IgG a 184 alimentos.",
+      get: ["El resultado de tu examen entre 2 y 3 semanas después de enviar tu muestra.", "El recetario «30 desayunos antiinflamatorios express» de regalo, con valor de $20.", "Si agregas la lectura con Verónica, un plan personalizado según tus resultados, tu historia y tus hábitos: $150 en vez de $161, 7 % menos; tarifa válida para 1 examen."],
+      sample: "La muestra es de sangre y se recoge con un pequeño pinchazo en el dedo. Las lancetas vienen dentro del kit que recibirás en tu dirección de preferencia en Estados Unidos.",
       note: 'No diagnostica alergias: orienta una dieta de eliminación.',
-      was: 344, now: 275, save: 69, id: '184-igg-food-sensitivity-panel',
+      was: 344, now: 275.2, save: 68.8, report: null, id: '184-igg-food-sensitivity-panel',
     },
     hor: {
       lab: 'Hormonas · DUTCH', name: 'DUTCH Plus (hormonas sexuales y adrenales)',
       title: 'Entiende por qué <em>te despiertas agotada.</em>', n: 35, nl: 'mediciones de tus hormonas',
-      pain: ['Te despiertas cansada aunque hayas dormido, o vives en burnout.', 'Te cuesta dormir o te acompaña la ansiedad.', 'Tu SPM es fuerte y te cambia el mes.', 'Sientes que empezó la perimenopausia y nadie te lo explica.'],
-      measure: ['Estrógenos, progesterona, testosterona, DHEA y cortisol con sus metabolitos', 'El ritmo de tu cortisol durante el día', 'La respuesta del cortisol al despertar (CAR)', 'Melatonina', 'Ácidos orgánicos: B12, B6, glutatión, dopamina, noradrenalina y daño oxidativo', 'Vías de estrógeno y metilación'],
-      why: 'Es la prueba hormonal más completa. No solo mide cuánta hormona produces: muestra cómo la procesas. Y sigue a tu cortisol durante todo el día, desde que despiertas, para dar contexto a la fatiga, el insomnio o los síntomas de perimenopausia.',
-      get: ['Tus resultados de hormonas y metabolitos, a partir de orina seca y saliva tomadas en casa.', 'El ritmo diario de tu cortisol y su respuesta al despertar.', 'Datos de melatonina, ácidos orgánicos y procesamiento de estrógenos.', 'De regalo: el recetario de 30 desayunos antiinflamatorios.', 'Opcional: la lectura con Verónica y tu plan de acción por $150.'],
-      sample: 'Orina seca y saliva, que tomas tú misma en casa con las instrucciones del kit.',
+      pain: ["Estás en perimenopausia.", "Tienes o tuviste ovarios poliquísticos, endometriosis, miomas o alteraciones en tu ciclo.", "Estás buscando un embarazo.", "Después del embarazo, sientes que tu cuerpo no está igual.", "Tienes síntomas premenstruales intensos, acné o dificultad para perder peso."],
+      measure: ["Estrógenos, progesterona, testosterona, DHEA y cortisol, con sus metabolitos.", "El ritmo del cortisol durante el día.", "La respuesta del cortisol al despertar (CAR).", "Melatonina.", "Marcadores de ácidos orgánicos relacionados con B12, B6, glutatión, dopamina, noradrenalina y daño oxidativo.", "Vías de metabolización de estrógenos y metilación."],
+      why: "Este examen mide hormonas y sus metabolitos para explorar cómo las procesas. También registra el ritmo del cortisol durante el día, desde que despiertas, para aportar contexto a lo que describes: fatiga, insomnio, ansiedad o antojos de dulces a partir de la tarde. No establece un diagnóstico.",
+      get: ["Los resultados de tu examen DUTCH Plus.", "El recetario «30 desayunos antiinflamatorios express» de regalo, con valor de $20.", "Si agregas la lectura con Verónica, una revisión de tus resultados en contexto y un plan de acción personalizado: $150 en vez de $161, 7 % menos; tarifa válida para 1 examen."],
+      sample: "Recoges las muestras de orina seca y saliva desde la comodidad de tu hogar, con el kit enviado a tu dirección en Estados Unidos.",
       note: 'Los exámenes no diagnostican: dan información para orientar tu plan.',
-      was: 578, now: 461, save: 117, id: 'dutch-plus-hormonas-sexuales-adrenal',
+      was: 578, now: 462.4, save: 115.6, report: "https://dutchtest.com/api/files/file/Female%20DUTCH%20Plus.pdf", id: 'dutch-plus-hormonas-sexuales-adrenal',
     },
     gi: {
       lab: 'Intestino · US BioTek', name: 'GI-Advanced Profile (incluye zonulina y H. pylori)',
       title: 'Mira lo que pasa <em>dentro de tu intestino.</em>', n: 98, nl: 'marcadores',
-      pain: ['Tienes una condición autoinmune y quieres mirar qué pasa en tu intestino.', 'Vives con alergias que no terminan de calmarse.', 'Tus hormonas están en desbalance y sospechas que el intestino tiene que ver.', 'Te dijeron que hay inflamación y nadie te dijo de dónde viene.'],
-      measure: ['Microbioma por PCR, incluidos Akkermansia y Bifidobacterium, y cultivo bacteriano', 'Patógenos bacterianos, virales y parasitarios, Candida y H. pylori', 'Ácidos grasos como el butirato', 'Calprotectina, relacionada con inflamación', 'Beta-glucuronidasa, relacionada con el reciclaje de estrógenos', 'Zonulina, relacionada con la permeabilidad intestinal'],
-      why: 'En un solo perfil ves tu microbioma, posibles patógenos, la inflamación y la permeabilidad intestinal. Y su precio ya incluye zonulina y H. pylori, que en otros laboratorios se cobran aparte.',
-      get: ['Tus resultados de un perfil de heces con 98 marcadores.', 'Zonulina y H. pylori incluidos en el perfil.', 'Una visión conjunta de tu microbioma, la inflamación y la permeabilidad intestinal.', 'De regalo: el recetario de 30 desayunos antiinflamatorios.', 'Opcional: la lectura con Verónica y tu plan de acción por $150.'],
-      sample: 'Muestra de heces, con las instrucciones del kit.',
+      pain: ["Tienes molestias digestivas con frecuencia.", "Tienes manifestaciones en la piel, como eczema, dermatitis, psoriasis, urticaria o rosácea.", "Te diagnosticaron una condición autoinmune.", "Tienes ansiedad, ataques de pánico o depresión."],
+      measure: ["Microbioma por PCR, incluidos Akkermansia y Bifidobacterium, y cultivo bacteriano.", "Patógenos bacterianos, virales y parasitarios, Candida y H. pylori.", "Ácidos grasos, como el butirato.", "Calprotectina, como marcador de inflamación.", "Beta-glucuronidasa, relacionada con el reciclaje de estrógenos.", "Zonulina, como marcador de permeabilidad intestinal."],
+      why: "Este examen reúne información sobre tu microbioma, parásitos, Candida y otras levaduras, y bacterias como H. pylori. También incluye marcadores de inflamación y permeabilidad intestinal. Sus resultados no establecen un diagnóstico.",
+      get: ["Los resultados de tu examen GI-Advanced.", "El recetario «30 desayunos antiinflamatorios express» de regalo, con valor de $20.", "Si agregas la lectura con Verónica, un plan de acción basado en tus resultados y tus metas de salud: $150 en vez de $161, 7 % menos; tarifa válida para 1 examen."],
+      sample: "Recoges una muestra de heces en casa con el kit enviado a tu dirección en Estados Unidos.",
       note: 'Los exámenes no diagnostican: dan información para orientar tu plan.',
-      was: 562, now: 449, save: 113, id: 'gi-advanced-profile-includes-zonulin-and-h-pylori',
+      was: 562, now: 449.6, save: 112.4, report: "https://www.usbiotek.com/hubfs/Content/Connection%20Model/Sample%20Reports/Sample%20Report%20-%20Microbiome%20-%20GI%20Advanced.pdf", id: 'gi-advanced-profile-includes-zonulin-and-h-pylori',
     },
   };
   const dlg = document.querySelector('[data-ficha-dlg]');
@@ -1689,15 +1611,16 @@
         <div class="big-n"><b class="foil" data-n="${f.n}">${f.n}</b><span>${f.nl}</span></div>
       </header>
       <div class="fb">
-        <section class="blk pain"><h3>Si esto te suena…</h3><ul>${li(f.pain)}</ul></section>
+        <section class="blk pain"><h3>Ideal para ti si…</h3><ul>${li(f.pain)}</ul></section>
         <section class="blk"><h3>Por qué este examen</h3><p class="why">${f.why}</p></section>
         <section class="blk measure wide"><h3>Lo que mide</h3><ul>${li(f.measure)}</ul></section>
         <section class="blk get"><h3>Lo que te llevas</h3><ul>${li(f.get)}</ul></section>
-        <section class="blk"><h3>Cómo es la muestra</h3><p>${f.sample}</p><p>Envío solo dentro de Estados Unidos. Al pagar se suman $25 de laboratorio.</p></section>
+        <section class="blk"><h3>Cómo es la muestra</h3><p>${f.sample}</p><p>Envíos solo dentro de Estados Unidos. La promoción no aplica para envíos a Puerto Rico, Nueva York (NY), Nueva Jersey (NJ), Rhode Island (RI) ni Hawái (HI). Si vives en alguno de estos lugares, elige una dirección de envío fuera de ellos y dentro de Estados Unidos.</p><p>Al pagar se suman $25 de laboratorio por examen.</p></section>
+        ${f.report ? `<section class="blk"><h3>Informe de ejemplo</h3><p>Así se ve un informe real de este examen.</p><a class="sample" href="${f.report}" target="_blank" rel="noopener">Ver informe de ejemplo (PDF) <span aria-hidden="true">↗</span></a></section>` : ''}
       </div>
       <p class="fnote">${f.note}</p>
       <div class="fbuy">
-        <div class="pr"><s>$${f.was}</s><strong>$${f.now}</strong><em>Ahorras $${f.save}</em><span class="kl"><b>Klarna.</b> o 4 pagos de $${(f.now / 4).toFixed(2)} sin intereses</span></div>
+        <div class="pr"><s>$${f.was}</s><strong>${fmt(f.now)}</strong><em>Ahorras ${fmt(f.save)}</em><span class="kl"><b>Klarna.</b> o 4 pagos de $${((f.now + 25) / 4).toFixed(2)} sin intereses</span><small class="fee-l">+ $25 de laboratorio al pagar · En el pago verás primero el precio regular: el 20 % de tu código BLACKFRIDAY se aplica en el último paso.</small></div>
         <a class="btn" href="https://veronicawellness.com/checkout/examenes/?examen=${f.id}&cupon=BLACKFRIDAY" target="_blank" rel="noopener">Comprar mi examen <span class="arr">→</span></a>
       </div>`;
     sheet.scrollTop = 0;
@@ -1770,9 +1693,9 @@
       if (innerWidth >= 980) { wrapBox.style.removeProperty('top'); wrapBox.style.removeProperty('--gs'); return; }
       const H = pin.clientHeight, capBottom = capsBox.offsetTop + capsBox.offsetHeight + 12;
       const above = 290, below = 200; // reach of the open gift around the box centre, unscaled
-      const gs = Math.max(.36, Math.min(.62, (H - capBottom - 16) / (above + below)));
+      const gs = Math.max(.36, Math.min(.62, (H - capBottom - 70) / (above + below)));
       wrapBox.style.setProperty('--gs', gs.toFixed(3));
-      wrapBox.style.top = Math.min(H - below * gs - 16, capBottom + above * gs) + 'px';
+      wrapBox.style.top = Math.min(H - below * gs - 70, capBottom + above * gs) + 'px';
     }
     addEventListener('resize', () => { shown = -1; draw(last); place(); });
     document.fonts?.ready.then(place);
