@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,WONK@0,9..144,400..800,0..1;1,9..144,400..700,0..1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
   /* Layout: a wine-and-gold-foil invitation. A giant foil "−20%" stands behind Verónica; the tests
      are gift cards that tilt and catch the light; blush pages are where you read about yourself;
@@ -1125,6 +1125,15 @@
   .promo .gc .gift b { color: #ff075e; }
   .excl { max-width: 820px; margin: 28px 0 0; font-size: 13.5px; color: var(--muted); }
 
+
+  /* Fraunces italic: the "wonky" l looked cut off */
+  *, *::before, *::after { font-variation-settings: 'WONK' 0; }
+  /* the 5-minute countdown in the old clock's place */
+  .rush-clock .clock-lbl { color: var(--gold); letter-spacing: .16em; line-height: 1.5; max-width: 34ch; }
+  .rush-clock .clock-cells b { font-family: var(--sans) !important; font-weight: 800 !important; }
+  .rush-clock .valid { font-size: 11px; color: var(--muted); }
+  .last .rush-clock .clock-lbl { color: var(--wine); margin-inline: auto; }
+  .last .rush-clock .valid { color: var(--wine); margin-top: 0; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .hook .no::after { transform: scaleX(1) rotate(-6deg); }
@@ -1158,7 +1167,7 @@
         <span class="from">desde <s>$344</s> <b>$275</b></span>
       </div>
       <span class="kl"><b>Klarna.</b> o 4 pagos sin intereses</span>
-      <p class="valid">Válida hasta el 1 de diciembre</p>
+      <div class="clock rush-clock"><span class="clock-lbl" data-rush-t>Aprovecha esta súper oferta en los próximos 5 minutos</span><div class="clock-cells" data-rush><span><b data-rm>05</b>min</span><span><b data-rs>00</b>seg</span></div><span class="valid">Válida hasta el 1 de diciembre</span></div>
     </div></div></div>
   <div class="h2-seal h4-seal" aria-label="20 por ciento de descuento">
         <svg viewBox="0 0 150 150" aria-hidden="true"><defs><path id="ring3" d="M75,75 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"/></defs><text><textPath href="#ring3">Black Friday · Veronica Wellness · </textPath></text></svg>
@@ -1229,16 +1238,6 @@
   </div>
 </section>
 
-<!-- 1d · URGENCY: Verónica's 5-minute countdown, per visitor; at zero it says the price is still on until 1 Dec -->
-<section class="rush gut" aria-label="Cuenta regresiva">
-  <div class="wrap"><div class="rush-card">
-    <span class="eyebrow">Black Friday · −20 %</span>
-    <p class="rush-t" data-rush-t>Aprovecha esta súper oferta en los próximos 5 minutos</p>
-    <div class="clock-cells rush-cells" data-rush><span><b data-rm>05</b>min</span><span><b data-rs>00</b>seg</span></div>
-    <a class="btn" href="#examenes">Ver mi promo <span class="arr">→</span></a>
-    <p class="rush-fine">Válida hasta el 1 de diciembre.</p>
-  </div></div>
-</section>
 
 <!-- 3 · SOLUTION -->
 
@@ -1428,7 +1427,7 @@
     <p class="lead">20 % menos en tu examen, el recetario de regalo y la lectura a $150. El 2 de diciembre todo vuelve a su precio.</p>
     <a class="btn wine" href="#examenes">Quiero entender mi cuerpo <span class="arr">→</span></a>
     <p class="kl-last"><span class="kl"><b>Klarna.</b> Paga en 4 cuotas sin intereses</span></p>
-    <p class="valid">Válida hasta el 1 de diciembre</p>
+    <div class="clock rush-clock"><span class="clock-lbl" data-rush-t>Aprovecha esta súper oferta en los próximos 5 minutos</span><div class="clock-cells" data-rush><span><b data-rm>05</b>min</span><span><b data-rs>00</b>seg</span></div><span class="valid">Válida hasta el 1 de diciembre</span></div>
     <p class="fine">Precios en USD. Cargo de laboratorio: $25 por examen. Envíos solo en EE. UU. Los exámenes no diagnostican. Klarna: sujeto a aprobación; solo Estados Unidos; los 4 pagos no están disponibles en Nuevo México ni Hawái.</p>
   </div>
 </footer>
@@ -1520,16 +1519,21 @@
   // Verónica's 5-minute countdown. One per visit (a reload keeps it, a new visit starts again); at zero it does not
   // pretend the offer is gone: it says the Black Friday price holds until 1 December.
   (function rush() {
-    const box = document.querySelector('[data-rush]'), txt = document.querySelector('[data-rush-t]');
-    if (!box) return;
+    const boxes = [...document.querySelectorAll('[data-rush]')];
+    if (!boxes.length) return;
     let t0 = Date.now();
     try { const v = +sessionStorage.getItem('vw-bf-rush'); if (v) t0 = v; else sessionStorage.setItem('vw-bf-rush', String(t0)); } catch (e) {}
-    const mm = box.querySelector('[data-rm]'), ss = box.querySelector('[data-rs]'), dc = document.querySelector('[data-dock-clock]');
+    const dc = document.querySelector('[data-dock-clock]');
     (function step() {
       const r = Math.max(0, 300000 - (Date.now() - t0));
-      mm.textContent = String(Math.floor(r / 6e4)).padStart(2, '0'); ss.textContent = String(Math.floor(r / 1e3) % 60).padStart(2, '0');
-      if (dc) { dc.dataset.rush = '1'; dc.textContent = r ? `Aprovecha en los próximos ${mm.textContent}:${ss.textContent}` : 'Válida hasta el 1 de diciembre'; }
-      if (r === 0) { box.hidden = true; txt.textContent = 'Tu precio Black Friday sigue disponible hasta el 1 de diciembre.'; return; }
+      const m = String(Math.floor(r / 6e4)).padStart(2, '0'), sec = String(Math.floor(r / 1e3) % 60).padStart(2, '0');
+      boxes.forEach((b) => { b.querySelector('[data-rm]').textContent = m; b.querySelector('[data-rs]').textContent = sec; });
+      if (dc) { dc.dataset.rush = '1'; dc.textContent = r ? `Aprovecha en los próximos ${m}:${sec}` : 'Válida hasta el 1 de diciembre'; }
+      if (r === 0) {
+        boxes.forEach((b) => (b.hidden = true));
+        document.querySelectorAll('[data-rush-t]').forEach((t) => (t.textContent = 'Tu precio Black Friday sigue disponible hasta el 1 de diciembre.'));
+        return;
+      }
       setTimeout(step, 250);
     })();
   })();
